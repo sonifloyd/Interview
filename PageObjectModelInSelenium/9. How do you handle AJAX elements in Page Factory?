@@ -1,0 +1,4 @@
+Use WebDriverWait to ensure the element is visible before interacting.
+
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
