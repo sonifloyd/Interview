@@ -1,0 +1,19 @@
+A Base Page is a parent class containing reusable methods like click, sendKeys, waitForElement, etc.
+
+public class BasePage {
+    WebDriver driver;
+    WebDriverWait wait;
+
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
+
+    public void clickElement(WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
+
+    public void enterText(WebElement element, String text) {
+        wait.until(ExpectedConditions.visibilityOf(element)).sendKeys(text);
+    }
+}
