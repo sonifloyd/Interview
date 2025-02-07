@@ -1,0 +1,13 @@
+To use Page Factory with Selenium Grid, create thread-safe WebDriver instances.
+
+@Parameters("browser")
+@BeforeMethod
+public void setup(String browser) {
+    if (browser.equalsIgnoreCase("chrome")) {
+        driver = new ChromeDriver();
+    } else if (browser.equalsIgnoreCase("firefox")) {
+        driver = new FirefoxDriver();
+    }
+    driver.get("https://example.com");
+    loginPage = PageFactory.initElements(driver, LoginPage.class);
+}
