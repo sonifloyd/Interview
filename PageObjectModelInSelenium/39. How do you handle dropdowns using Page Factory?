@@ -1,0 +1,9 @@
+Use Select class in Selenium. 
+
+@FindBy(id = "dropdown")
+private WebElement dropdown;
+
+public void selectOptionByValue(String value) {
+    new Select(dropdown).selectByValue(value);
+}
+ 
