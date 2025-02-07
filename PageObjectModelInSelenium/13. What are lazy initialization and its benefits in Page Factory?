@@ -1,0 +1,1 @@
+Lazy initialization means elements are not created until they are needed, which reduces memory consumption and improves performance.
