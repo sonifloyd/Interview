@@ -1,0 +1,11 @@
+Use getWindowHandles() to switch between windows.
+
+public void switchToNewWindow() {
+    String parentWindow = driver.getWindowHandle();
+    for (String windowHandle : driver.getWindowHandles()) {
+        if (!windowHandle.equals(parentWindow)) {
+            driver.switchTo().window(windowHandle);
+            break;
+        }
+    }
+}
