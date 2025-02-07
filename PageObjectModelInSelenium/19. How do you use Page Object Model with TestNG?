@@ -1,0 +1,29 @@
+In TestNG, you can integrate POM by:
+
+Creating page classes for different web pages.
+Using TestNG @BeforeMethod to initialize page objects.
+Using @Test annotations for test execution.
+
+public class LoginTest {
+    WebDriver driver;
+    LoginPage loginPage;
+
+    @BeforeMethod
+    public void setup() {
+        driver = new ChromeDriver();
+        driver.get("https://example.com");
+        loginPage = new LoginPage(driver);
+    }
+
+    @Test
+    public void testLogin() {
+        loginPage.enterUsername("testUser");
+        loginPage.enterPassword("testPass");
+        loginPage.clickLogin();
+    }
+
+    @AfterMethod
+    public void teardown() {
+        driver.quit();
+    }
+}
