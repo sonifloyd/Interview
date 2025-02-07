@@ -1,0 +1,31 @@
+The Page Object Model (POM) is a design pattern that helps in creating object repositories for web UI elements. Each web page is represented as a separate class, 
+and the elements on the page are defined as class members. This improves test maintenance and reusability.
+
+
+public class LoginPage {
+    WebDriver driver;
+
+    // Locators
+    By username = By.id("user");
+    By password = By.id("pass");
+    By loginButton = By.id("login");
+
+    // Constructor
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    // Actions
+    public void enterUsername(String user) {
+        driver.findElement(username).sendKeys(user);
+    }
+
+    public void enterPassword(String pass) {
+        driver.findElement(password).sendKeys(pass);
+    }
+
+    public void clickLogin() {
+        driver.findElement(loginButton).click();
+    }
+}
+
