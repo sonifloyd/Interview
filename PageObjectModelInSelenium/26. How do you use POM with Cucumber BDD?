@@ -1,0 +1,34 @@
+Example: 📌 Feature File (Login.feature)
+
+Feature: Login functionality
+  Scenario: User logs in with valid credentials
+    Given User is on login page
+    When User enters "testUser" and "testPass"
+    Then User should be redirected to the dashboard
+
+Step Definition (LoginSteps.java)
+
+public class LoginSteps {
+    WebDriver driver;
+    LoginPage loginPage;
+
+    @Given("User is on login page")
+    public void userIsOnLoginPage() {
+        driver = new ChromeDriver();
+        loginPage = new LoginPage(driver);
+    }
+
+    @When("User enters {string} and {string}")
+    public void userEntersCredentials(String username, String password) {
+        loginPage.enterUsername(username);
+        loginPage.enterPassword(password);
+        loginPage.clickLogin();
+    }
+
+    @Then("User should be redirected to the dashboard")
+    public void userRedirectedToDashboard() {
+        Assert.assertTrue(driver.getTitle().contains("Dashboard"));
+    }
+}
+
+
