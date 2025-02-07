@@ -1,0 +1,4 @@
+✅ Keep Locators in Page Classes – Do not mix locators with test logic
+✅ Use Separate Base Page – For reusable methods
+✅ Use Explicit Waits – Instead of Thread.sleep()
+✅ Use PageFactory.initElements() Once – Inside constructor
