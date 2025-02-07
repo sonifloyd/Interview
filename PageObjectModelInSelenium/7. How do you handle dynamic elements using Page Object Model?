@@ -1,0 +1,6 @@
+For dynamic elements, use explicit waits instead of initializing elements once.
+
+public WebElement waitForElement(By locator) {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+}
