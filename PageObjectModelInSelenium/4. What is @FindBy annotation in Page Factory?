@@ -1,0 +1,10 @@
+The @FindBy annotation is used to locate web elements in Page Factory. It replaces driver.findElement() calls.
+
+@FindBy(id = "username")
+WebElement userField;
+
+@FindBy(name = "password")
+WebElement passField;
+
+@FindBy(xpath = "//button[@type='submit']")
+WebElement loginBtn;
