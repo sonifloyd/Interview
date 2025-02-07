@@ -1,0 +1,6 @@
+Use Selenium’s Alert class for handling JavaScript pop-ups.
+
+public void handleAlert() {
+    Alert alert = driver.switchTo().alert();
+    alert.accept(); // Click OK
+}
