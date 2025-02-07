@@ -1,0 +1,11 @@
+Return Page Objects from methods for seamless navigation.
+Use a Base Page class for common actions.
+
+public class LoginPage {
+    public DashboardPage login(String user, String pass) {
+        enterUsername(user);
+        enterPassword(pass);
+        clickLogin();
+        return new DashboardPage(driver);
+    }
+}
