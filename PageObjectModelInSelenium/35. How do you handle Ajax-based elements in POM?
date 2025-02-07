@@ -1,0 +1,36 @@
+Answer:
+Ajax elements load asynchronously, so direct interaction may fail.
+✅ Use Explicit Waits
+✅ Use JavaScript Executo 
+
+Example using Explicit Wait for Ajax Elements: 
+public WebElement waitForAjaxElement(By locator) {
+    return new WebDriverWait(driver, Duration.ofSeconds(20))
+        .until(ExpectedConditions.presenceOfElementLocated(locator));
+}
+
+36. What is a Factory Class in POM, and how does it help? 
+A Factory Class provides a single point for initializing multiple page objects. 
+
+public class PageFactoryManager {
+    WebDriver driver;
+
+    public PageFactoryManager(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public LoginPage getLoginPage() {
+        return new LoginPage(driver);
+    }
+
+    public HomePage getHomePage() {
+        return new HomePage(driver);
+    }
+}
+
+Usage in Test Class:
+PageFactoryManager factory = new PageFactoryManager(driver);
+LoginPage loginPage = factory.getLoginPage();
+loginPage.enterUsername("testUser");
+✅ Reduces code duplication
+✅ Makes object creation consistent
