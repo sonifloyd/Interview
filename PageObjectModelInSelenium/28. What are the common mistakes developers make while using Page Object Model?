@@ -1,0 +1,5 @@
+Answer:
+🔴 Using Thread.sleep() instead of explicit waits.
+🔴 Not separating test logic from Page Object classes.
+🔴 Hardcoding test data instead of using Data Providers.
+🔴 Keeping WebDriver initialization inside Page classes (should be in Base Test class).
