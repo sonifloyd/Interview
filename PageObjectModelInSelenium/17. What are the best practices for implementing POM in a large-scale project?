@@ -1,0 +1,4 @@
+Keep locators separate (use a Locators.java file).
+Use Base Page Class for common actions.
+Implement separate test classes for better organization.
+Use Factory design pattern for creating page objects dynamically.
