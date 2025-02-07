@@ -1,0 +1,1 @@
+Lazy initialization means elements are not loaded when the class is instantiated but are initialized only when they are used. This improves performance.
