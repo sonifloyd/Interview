@@ -1,0 +1,36 @@
+A Singleton WebDriver ensures only one browser instance is active during execution. 
+
+Example Singleton Class: 
+public class WebDriverManager {
+    private static WebDriver driver;
+
+    private WebDriverManager() { }
+
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            driver = new ChromeDriver();
+        }
+        return driver;
+    }
+
+    public static void quitDriver() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
+    }
+}
+
+Usage in Test Class: 
+@BeforeMethod
+public void setup() {
+    driver = WebDriverManager.getDriver();
+}
+@AfterMethod
+public void teardown() {
+    WebDriverManager.quitDriver();
+}
+
+✅ Prevents unnecessary browser launches
+✅ Optimizes execution in parallel testing
+ 
