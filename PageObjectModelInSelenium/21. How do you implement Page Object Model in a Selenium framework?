@@ -1,0 +1,20 @@
+Answer:
+A good Selenium framework structure using POM includes:
+📌 Page Classes → LoginPage, HomePage, DashboardPage
+📌 Test Classes → LoginTest, HomeTest, DashboardTest
+📌 Utility Classes → WebDriverManager, WaitHelper
+📌 DataProvider Classes → TestDataProvider
+
+
+src
+ ├── main
+ │   ├── pages
+ │   │   ├── LoginPage.java
+ │   │   ├── DashboardPage.java
+ │   │   ├── HomePage.java
+ │   ├── utils
+ │   │   ├── WebDriverManager.java
+ │   │   ├── TestDataProvider.java
+ ├── test
+ │   ├── LoginTest.java
+ │   ├── DashboardTest.java
