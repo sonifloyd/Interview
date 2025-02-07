@@ -1,0 +1,36 @@
+Answer:
+🔹 Use External Files (Excel, JSON, DB)
+🔹 Use @DataProvider in TestNG
+🔹 Use Property Files for Configurations
+
+📌 Example - Using config.properties for credentials: 
+
+config.properties 
+url=https://example.com
+username=testUser
+password=testPass
+
+Read Property File in Java: 
+public class ConfigReader {
+    Properties properties = new Properties();
+
+    public ConfigReader() {
+        try {
+            FileInputStream file = new FileInputStream("config.properties");
+            properties.load(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getProperty(String key) {
+        return properties.getProperty(key);
+    }
+}
+
+ Usage in Test Class: 
+ConfigReader config = new ConfigReader();
+driver.get(config.getProperty("url"));
+loginPage.enterUsername(config.getProperty("username"));
+loginPage.enterPassword(config.getProperty("password"));
+ 
