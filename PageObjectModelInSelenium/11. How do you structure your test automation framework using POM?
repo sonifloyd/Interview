@@ -1,0 +1,6 @@
+A good structure includes:
+
+Page Classes – Separate class for each web page.
+Test Classes – Actual test cases calling Page classes.
+Utility Classes – Common reusable methods (e.g., waits, screenshots).
+Data Providers – Data-driven testing using @DataProvider in TestNG.
