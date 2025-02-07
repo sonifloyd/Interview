@@ -1,0 +1,11 @@
+
+Feature	@FindBy	findElement()
+Initialization	Done at object creation (lazy loading)	Finds element at runtime
+Performance	Faster (loads once and reuses)	Slower (searches every time)
+Usage	Used with PageFactory.initElements()	Used normally in Selenium 
+Example using @FindBy: 
+@FindBy(id = "username") 
+private WebElement username;
+
+Example using findElement(): 
+WebElement username = driver.findElement(By.id("username"));
