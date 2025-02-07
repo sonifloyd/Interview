@@ -1,0 +1,7 @@
+You must call PageFactory.initElements(driver, this); inside the constructor.
+
+public LoginPageFactory(WebDriver driver) {
+    this.driver = driver;
+    PageFactory.initElements(driver, this);
+}
+ 
