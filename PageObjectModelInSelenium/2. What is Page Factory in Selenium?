@@ -1,0 +1,38 @@
+Page Factory is an enhancement of the Page Object Model that uses annotations to initialize web elements more efficiently. It provides lazy initialization, meaning elements are only initialized when they are used.
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class LoginPageFactory {
+    WebDriver driver;
+
+    @FindBy(id = "user")
+    WebElement username;
+
+    @FindBy(id = "pass")
+    WebElement password;
+
+    @FindBy(id = "login")
+    WebElement loginButton;
+
+    // Constructor to initialize elements
+    public LoginPageFactory(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    // Actions
+    public void enterUsername(String user) {
+        username.sendKeys(user);
+    }
+
+    public void enterPassword(String pass) {
+        password.sendKeys(pass);
+    }
+
+    public void clickLogin() {
+        loginButton.click();
+    }
+}
