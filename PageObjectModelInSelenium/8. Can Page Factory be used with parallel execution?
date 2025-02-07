@@ -1,0 +1,1 @@
+Yes, but avoid using static WebElements. Always initialize elements inside test methods or separate instances for different threads.
