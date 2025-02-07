@@ -1,0 +1,5 @@
+Feature	Page Object Model (POM)	Page Factory
+Element Initialization	Manually using findElement()	Automatically using PageFactory.initElements()
+Performance	Slower	Faster due to lazy initialization
+Readability	More code required	Cleaner, more readable
+Maintainability	Manual updates	Annotations simplify maintenance
