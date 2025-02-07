@@ -1,0 +1,16 @@
+StaleElementReferenceException occurs when a web element becomes stale (i.e., the page is refreshed or DOM changes). To handle this:
+
+Use explicit waits to locate the element again.
+Catch the exception and retry the operation.
+
+public void clickElementWithRetry(By locator) {
+    int attempts = 0;
+    while (attempts < 3) {
+        try {
+            driver.findElement(locator).click();
+            break;
+        } catch (StaleElementReferenceException e) {
+            attempts++;
+        }
+    }
+}
