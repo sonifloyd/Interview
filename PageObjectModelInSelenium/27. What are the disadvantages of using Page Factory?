@@ -1,0 +1,4 @@
+Answer:
+🚫 Memory Consumption – Loads elements in advance, even if not used.
+🚫 Limited Flexibility – Hard to handle dynamic locators.
+🚫 Not Recommended for Large Apps – Using @FindBy on hundreds of elements can slow down execution.
