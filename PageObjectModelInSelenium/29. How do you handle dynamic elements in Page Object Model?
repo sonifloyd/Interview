@@ -1,0 +1,16 @@
+Answer:
+Dynamic elements have changing attributes (e.g., IDs, XPaths). To handle them:
+✅ Use Relative XPath with contains(), starts-with()
+✅ Use Explicit Waits
+✅ Use JavaScript Executor for interaction
+
+Example using dynamic XPath: 
+@FindBy(xpath = "//button[contains(text(),'Login')]")
+private WebElement loginButton;
+
+Or locate dynamically in methods: 
+public WebElement getDynamicElement(String value) {
+    return driver.findElement(By.xpath("//div[@data-id='" + value + "']"));
+}
+ 
+ 
