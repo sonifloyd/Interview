@@ -1,0 +1,63 @@
+What is Page Object Model (POM) in Selenium?
+Page Object Model (POM) is a design pattern in Selenium that helps to maintain test scripts by separating the test logic from the web elements. 
+It makes automation frameworks more maintainable, reusable, and scalable.
+
+How can we run testcases in paralle in cucumber 
+
+<suite name="Cucumber Suite" parallel="methods" thread-count="3">
+    <test name="Cucumber Test">
+        <classes>
+            <class name="runner.TestRunner"/>
+        </classes>
+    </test>
+</suite>
+
+parallel="methods" means each scenario runs in parallel.
+👉 thread-count="3" specifies the number of threads to use.
+
+-- In karate framework -:::::::
+
+import com.intuit.karate.junit5.Karate;
+
+class ParallelRunner {
+    @Karate.Test
+    Karate testParallel() {
+        return Karate.run("classpath:features").parallel(5);
+    }
+}
+---- 
+java oops concept how using in framework .
+Can we override static method 
+can we override constructor .
+question mostly from collection 
+java coding 
+find the occurence of element in array or string 
+shift zero to right or shift zero to right 
+find the 2nd or 3 rd largest array of element .
+sting manulation -> reverse string   reverse string by worrd l love india 
+patter triangle  , left centric or right centric 
+
+---
+selenium 
+hangling window 
+1st we have switch to move 3rd window and by default move to ist window .
+selenium exception question 
+1.stale element exception 
+got to amazon or youtube  find the element of table in xapth 
+slenium  api architure 
+--
+Api 
+Ststus code 
+difference b/w 401 and 403 
+pojo classes ,
+serialization and serialization 
+--- 
+cucumber 
+where and how define feature file or step diffiniation in feature file .
+hooks in cucumber  what is use of background keeywork . if there is hooks then what is user of background keyword
+--
+Testng 
+tell me execution order of testng
+can u priprotize test in test ng 
+-- 
+
