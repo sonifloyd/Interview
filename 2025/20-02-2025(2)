@@ -1,0 +1,34 @@
+What is differnce b/w query parameter nad path parameter 
+
+✅ Path Parameters → When you need to uniquely identify a resource (e.g., user ID, order ID).
+✅ Query Parameters → When you need to filter, search, or modify the request (e.g., sorting, pagination, filtering)
+
+URL Sent: https://api.example.com/users/123
+Given url "https://api.example.com"
+And path "users", "123"
+When method GET
+Then status 200
+
+
+https://api.example.com/users?role=admin&status=active
+Given url "https://api.example.com/users"
+And param role = "admin"
+And param status = "active"
+When method GET
+Then status 200
+
+
+what are the key components of an api 
+Base Url 
+response url 
+query paramter 
+methods http 
+response code 
+responsee data 
+
+what is differnce b/w 401 and 403 
+403 forbidden -
+The user is authenticated but does not have permission to access the resource.
+
+201 → Use for successful resource creation (with a response body).
+204 → Use for actions that succeed but don’t need a response (like DELETE or PUT).
