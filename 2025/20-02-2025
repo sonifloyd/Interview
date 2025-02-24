@@ -41,6 +41,19 @@ patter triangle  , left centric or right centric
 selenium 
 hangling window 
 1st we have switch to move 3rd window and by default move to ist window .
+---
+Answer :
+
+Set<String> windowHandles = driver.getWindowHandles(); //  driver.getWindowHandles() -> this is give no of open windows 
+List<String> windows = new ArrayList<>(windowHandles); // converted to arraylist b/c of indexing 
+
+// Switch to the 3rd window (index 2)
+driver.switchTo().window(windows.get(2)); 
+
+// Switch back to the 1st window (index 0)
+driver.switchTo().window(windows.get(0));
+---
+
 selenium exception question 
 1.stale element exception 
 got to amazon or youtube  find the element of table in xapth 
