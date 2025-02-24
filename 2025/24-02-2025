@@ -1,0 +1,179 @@
+How do you handle multiple windows in Selenium WebDriver?
+We use getWindowHandles() to get all window handles and switchTo().window(handle) to switch
+
+Set<String> windowHandles = driver.getWindowHandles();
+for (String handle : windowHandles) {
+    driver.switchTo().window(handle);
+    System.out.println("Switched to window: " + driver.getTitle());
+}
+
+
+2. How do you switch to a specific window by title?
+String targetTitle = "Expected Window Title";
+Set<String> handles = driver.getWindowHandles();
+
+for (String handle : handles) {
+    driver.switchTo().window(handle);
+    if (driver.getTitle().equals(targetTitle)) {
+        break;
+    }
+}
+
+3. How do you close only the current window in Selenium?
+
+driver.close(); // Closes only the current window
+driver.quit(); // Closes all browser windows
+
+4. How do you switch back to the parent window?
+We store the parent window handle before opening new ones and switch back using switchTo().window(parentHandle);
+String parentWindow = driver.getWindowHandle();
+Set<String> allWindows = driver.getWindowHandles();
+
+for (String window : allWindows) {
+    if (!window.equals(parentWindow)) {
+        driver.switchTo().window(window);
+    }
+}
+
+// Switch back to the parent window
+driver.switchTo().window(parentWindow);
+
+5. How do you handle new tabs in Selenium?
+String parentWindow = driver.getWindowHandle();
+Set<String> handles = driver.getWindowHandles();
+
+for (String handle : handles) {
+    if (!handle.equals(parentWindow)) {
+        driver.switchTo().window(handle); // Switch to new tab
+    }
+}
+
+6. How do you handle pop-ups or alert windows in Selenium?
+Alert alert = driver.switchTo().alert();
+System.out.println(alert.getText()); // Get alert text
+alert.accept(); // Click OK
+// alert.dismiss(); // Click Cancel
+
+7. What is the difference between getWindowHandle() and getWindowHandles()?
+
+getWindowHandle()	Returns the current window handle (single window).
+getWindowHandles()	Returns all open window handles in a Set<String>.
+Example:
+String singleWindow = driver.getWindowHandle(); // Single window
+Set<String> multipleWindows = driver.getWindowHandles(); // All windows
+
+8. How do you switch to the last opened window in Selenium?
+List<String> windows = new ArrayList<>(driver.getWindowHandles());
+driver.switchTo().window(windows.get(windows.size() - 1)); // Switch to the last window
+
+9. How do you switch to a window using its index?
+List<String> windows = new ArrayList<>(driver.getWindowHandles());
+driver.switchTo().window(windows.get(1)); // Switch to the second window (index 1)
+
+10. How do you handle child windows in Selenium?
+Store the parent window handle, switch to a newly opened window, and return to the parent.
+String parentWindow = driver.getWindowHandle();
+Set<String> allWindows = driver.getWindowHandles();
+
+for (String window : allWindows) {
+    if (!window.equals(parentWindow)) {
+        driver.switchTo().window(window); // Switch to child window
+    }
+}
+
+// Switch back to the parent window
+driver.switchTo().window(parentWindow);
+
+11. How can you verify if a new window is opened after clicking a button?
+Store the window count before clicking and compare it after clicking.
+int beforeClick = driver.getWindowHandles().size();
+driver.findElement(By.id("buttonID")).click(); // Click that opens a new window
+
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+wait.until(ExpectedConditions.numberOfWindowsToBe(beforeClick + 1));
+
+int afterClick = driver.getWindowHandles().size();
+System.out.println("New window opened: " + (afterClick > beforeClick));
+
+12. How do you close all windows except the main window?
+Loop through all windows and close them except the main one.
+String mainWindow = driver.getWindowHandle();
+Set<String> allWindows = driver.getWindowHandles();
+
+for (String window : allWindows) {
+    if (!window.equals(mainWindow)) {
+        driver.switchTo().window(window);
+        driver.close(); // Close child windows
+    }
+}
+
+driver.switchTo().window(mainWindow); // Switch back to main window
+
+13. How do you check if a particular window exists before switching?
+Check if the window handle is present in getWindowHandles() before switching.
+String expectedWindow = "CDwindow-789GHI";
+Set<String> handles = driver.getWindowHandles();
+
+if (handles.contains(expectedWindow)) {
+    driver.switchTo().window(expectedWindow);
+} else {
+    System.out.println("Window not found!");
+}
+
+14. What happens if you try to switch to a window that doesn’t exist?
+Selenium throws a NoSuchWindowException. To avoid this, check if the window exists before switching.
+
+try {
+    driver.switchTo().window("InvalidHandle"); // This will fail if the handle is wrong
+} catch (NoSuchWindowException e) {
+    System.out.println("Window does not exist!");
+}
+
+15. How do you handle multiple tabs instead of new windows?
+Tabs are handled the same way as windows using getWindowHandles().
+Set<String> handles = driver.getWindowHandles();
+List<String> tabs = new ArrayList<>(handles);
+
+driver.switchTo().window(tabs.get(1)); // Switch to the second tab
+
+16. How do you switch to a window using JavaScript instead of Selenium methods?
+You can use JavaScript Executor to open and switch to a new window.
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("window.open('https://www.google.com', '_blank');");
+
+Set<String> windows = driver.getWindowHandles();
+List<String> winList = new ArrayList<>(windows);
+driver.switchTo().window(winList.get(1)); // Switch to the newly opened tab
+
+17. How do you maximize a new window when switching?
+
+Set<String> handles = driver.getWindowHandles();
+List<String> windows = new ArrayList<>(handles);
+
+driver.switchTo().window(windows.get(1)); // Switch to new window
+driver.manage().window().maximize(); // Maximize the new window
+
+19. How can you open a new window without clicking anything?
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("window.open('https://www.example.com', '_blank');");
+
+20. How do you handle a scenario where the new window loads slowly?
+Use Explicit Wait to wait until the number of windows increases.
+int initialWindows = driver.getWindowHandles().size();
+driver.findElement(By.id("openNewWindow")).click(); // Click button to open new window
+
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+wait.until(ExpectedConditions.numberOfWindowsToBe(initialWindows + 1)); // Wait for new window
+
+21. How do you ensure that you switched to the correct window?
+Check the title or URL after switching
+Set<String> handles = driver.getWindowHandles();
+for (String handle : handles) {
+    driver.switchTo().window(handle);
+    if (driver.getTitle().contains("Expected Title")) {
+        break;
+    }
+}
+
+
+
