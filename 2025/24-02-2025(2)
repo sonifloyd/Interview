@@ -1,0 +1,191 @@
+Scenario 1: Scroll Down in a Window Before Clicking a Button
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("window.scrollBy(0,500);"); // Scroll down by 500 pixels
+driver.findElement(By.id("buttonID")).click(); // Click button after scrolling
+
+Scenario 2: Scroll Inside a Child Window Before Clicking a Button
+ Question: How do you switch to a child window, scroll inside it, and click a button?
+ // Store the main window handle
+String mainWindow = driver.getWindowHandle();
+Set<String> allWindows = driver.getWindowHandles();
+
+// Switch to child window
+for (String window : allWindows) {
+    if (!window.equals(mainWindow)) {
+        driver.switchTo().window(window);
+        break;
+    }
+}
+
+// Scroll inside the child window
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("window.scrollBy(0,300);"); // Scroll down by 300 pixels
+
+// Click the button after scrolling
+driver.findElement(By.id("childButtonID")).click();
+
+// Switch back to the main window
+driver.switchTo().window(mainWindow);
+
+
+Scenario 3: Scroll Inside a Scrollable Div Before Clicking a Button
+✅ Question: How do you scroll inside a scrollable div element before clicking a button?
+✅ Answer: Use JavaScript to scroll inside the div.
+WebElement scrollableDiv = driver.findElement(By.id("scrollableDivID"));
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("arguments[0].scrollTop += 400;", scrollableDiv); // Scroll down by 400px
+
+driver.findElement(By.id("buttonInsideDiv")).click(); // Click button inside div
+
+Scenario 4: Scroll to an Element Before Clicking
+✅ Question: How do you scroll directly to a specific element before clicking?
+✅ Answer: Use scrollIntoView(true).
+WebElement element = driver.findElement(By.id("targetButton"));
+((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+element.click(); // Click after scrolling to the element
+
+
+Scenario 5: Scroll Horizontally Before Clicking a Button
+✅ Question: How do you scroll horizontally in a page before clicking a button?
+✅ Answer: Use JavaScript to scroll horizontally.
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("window.scrollBy(500,0);"); // Scroll 500 pixels to the right
+
+driver.findElement(By.id("sideButton")).click(); // Click button after scrolling
+
+Scenario 6: Scroll to Bottom of Page and Click a Button
+ Question: How do you scroll to the bottom of the page before clicking a button?
+
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("window.scrollTo(0, document.body.scrollHeight);"); // Scroll to bottom
+
+driver.findElement(By.id("bottomButton")).click(); // Click button at bottom
+
+Scenario 7: Scroll in an iFrame Before Clicking a Button
+Question: How do you scroll inside an iframe before clicking a button?
+✅ Answer: Switch to the iframe and scroll inside it.
+
+// Switch to the iframe
+driver.switchTo().frame("iframeID");
+
+// Scroll inside the iframe
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("window.scrollBy(0,400);"); // Scroll down inside iframe
+
+// Click button inside iframe
+driver.findElement(By.id("iframeButton")).click();
+
+// Switch back to the main content
+driver.switchTo().defaultContent();
+
+
+Scenario 8: Handle Lazy Loading and Click a Button
+✅ Question: How do you handle lazy-loaded elements and click a button that loads dynamically?
+✅ Answer: Scroll and wait for the element to be clickable.
+
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("window.scrollBy(0, 800);"); // Scroll down
+
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.id("lazyLoadButton")));
+
+button.click(); // Click button after it becomes visible
+
+
+Scenario 9: Scroll and Click a Button Using Actions Class
+✅ Question: How do you use the Actions Class to scroll and click a button?
+WebElement button = driver.findElement(By.id("scrollButton"));
+Actions actions = new Actions(driver);
+actions.moveToElement(button).click().perform(); // Scroll and click using Actions class
+
+
+Scenario 10: Scroll and Click a Button in a Popup Window
+✅ Question: How do you scroll inside a popup window before clicking a button?
+
+// Switch to popup window
+for (String handle : driver.getWindowHandles()) {
+    driver.switchTo().window(handle);
+}
+
+// Scroll inside the popup
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("window.scrollBy(0, 300);"); // Scroll down 300px
+
+// Click the button inside the popup
+driver.findElement(By.id("popupButton")).click();
+
+// Close popup and return to main window
+driver.close();
+driver.switchTo().window(driver.getWindowHandles().iterator().next());
+
+
+---
+Drag and Drop Using Selenium WebDriver
+
+public class DragAndDropExample {
+    public static void main(String[] args) {
+        WebDriver driver = new ChromeDriver();
+        driver.get("URL_OF_THE_PAGE_WITH_DRAG_DROP");
+
+        // Locate source (element to be dragged)
+        WebElement source = driver.findElement(By.id("draggable"));
+
+        // Locate target (element where to drop)
+        WebElement target = driver.findElement(By.id("droppable"));
+
+        // Perform drag and drop using Actions class
+        Actions actions = new Actions(driver);
+        actions.dragAndDrop(source, target).perform();
+
+        // Verify the result (optional)
+        String textAfterDrop = target.getText();
+        if (textAfterDrop.contains("Dropped")) {
+            System.out.println("Drag and Drop successful!");
+        } else {
+            System.out.println("Drag and Drop failed!");
+        }
+
+        // Close browser
+        driver.quit();
+    }
+}
+Alternative Approach: Drag and Drop Using Click-Hold & Move-To
+If dragAndDrop() does not work, use clickAndHold() + moveToElement() + release():
+
+Actions actions = new Actions(driver);
+actions.clickAndHold(source).moveToElement(target).release().perform();
+
+-----
+Selenium Code for Taking a Screenshot
+public class ScreenshotExample {
+    public static void main(String[] args) throws IOException {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.example.com");
+
+        // Capture Screenshot
+        File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+        // Save the screenshot to the desired location
+        FileUtils.copyFile(screenshotFile, new File("screenshot.png"));
+
+        System.out.println("Screenshot saved successfully!");
+
+        // Close the browser
+        driver.quit();
+    }
+}
+Explanation
+Convert WebDriver to TakesScreenshot:
+(TakesScreenshot) driver
+Capture the screenshot:
+
+driver.getScreenshotAs(OutputType.FILE)
+Save the screenshot using Apache Commons IO:
+
+FileUtils.copyFile(source, new File("path"));
+Taking Screenshot of a Specific Web Element
+WebElement element = driver.findElement(By.id("elementID"));
+File screenshotFile = element.getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(screenshotFile, new File("element_screenshot.png"));
+
+---
