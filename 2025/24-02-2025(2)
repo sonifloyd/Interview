@@ -3,6 +3,7 @@ JavascriptExecutor js = (JavascriptExecutor) driver;
 js.executeScript("window.scrollBy(0,500);"); // Scroll down by 500 pixels
 driver.findElement(By.id("buttonID")).click(); // Click button after scrolling
 
+
 Scenario 2: Scroll Inside a Child Window Before Clicking a Button
  Question: How do you switch to a child window, scroll inside it, and click a button?
  // Store the main window handle
