@@ -1,0 +1,75 @@
+Q2. What is the Full Form of BDD?
+✅ Answer:
+Behavior Driven Development
+
+Q3. Why is BDD Used?
+✅ Answer: BDD use karte hain because:
+
+Non-technical log bhi Test Cases ko Samajh Sakte hain
+Communication Better hoti hai between Developer + QA + Client
+Reusable Test Cases
+Easy Documentation
+
+Q5. What is Gherkin Language in BDD?
+✅ Answer: Gherkin ek Plain English Language hai jisme BDD ke Scenario likhte hain.
+Syntax:
+
+Given → Precondition
+When → Action
+Then → Expected Result
+
+
+
+
+. What is the Difference Between TDD vs BDD?
+TDD (Test Driven Development)	BDD (Behavior Driven Development)
+Focuses on How to Implement	Focuses on What to Implement
+Uses JUnit/TestNG	Uses Cucumber/Karate Framework
+Technical Language	English Language (Gherkin)
+Developers Use	Both Developers + QA Use
+
+
+Q6. What is the Framework Used in BDD?
+✅ Answer: Most Common BDD Frameworks:
+
+Framework	Language
+Cucumber	Java
+Karate	API Testing
+SpecFlow	C#
+JBehave	Java
+
+
+Q9. What is Hooks in Cucumber?
+✅ Answer: Hooks ka Use hota hai Pre-condition aur Post-condition Code Execute Karne ke liye.
+👉 @Before → Runs Before Every Scenario
+👉 @After → Runs After Every Scenario
+
+
+Q10. How to Handle Data in BDD?
+✅ Answer: Cucumber mein hum Data Tables ka Use Karte Hai Multiple Data Execute Karne Ke Liye.
+
+Example:
+
+gherkin
+Copy
+Edit
+Scenario Outline: Login with Multiple Users
+    Given User is on Login Page
+    When User enters "<username>" and "<password>"
+    Then User should see Dashboard Page
+
+Examples:
+    | username | password |
+    | sai      | baba     |
+    | google   | girl     |
+
+
+Q11. What is the Difference between Scenario and Scenario Outline?
+Scenario	Scenario Outline
+Single Data	Multiple Data
+No Examples	Uses Examples Table
+Simple Test	Data-Driven Testing
+
+
+Q13. Can We Execute Parallel Tests in Cucumber?
+✅ Answer: Haan, Cucumber mein TestNG + Maven Surefire Plugin se Parallel Execution Kar Sakte Hain.
