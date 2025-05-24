@@ -25,3 +25,26 @@ public class Main
     
 	}
 }
+---  ---- 
+The repeat(int count) method is available on Java Strings starting from Java 11. 
+It returns a new string consisting of the original string repeated count times.
+
+String repeated = "abc".repeat(3);
+System.out.println(repeated); // Output: abcabcabc
+
+System.out.println("*".repeat(i));
+----
+	Scanner sc = new Scanner(System.in);
+        int input = sc.nextInt();
+         System.out.println("Enter input "+ input);
+      
+
+        for (int i = 1; i <= input; i++) {
+    System.out.println("*".repeat(i)); // Java 11+ feature
+} but t.c- o(n2)
+
+
+---- 
+
+
+
