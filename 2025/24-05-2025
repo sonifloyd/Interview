@@ -1,0 +1,27 @@
+--- Single digit number as input (1-9)
+import java.util.*;   
+public class Main
+{
+	public static void main(String[] args) {
+	
+		
+		Scanner sc = new Scanner(System.in);
+        int input = sc.nextInt();
+         System.out.println("Enter input "+ input);
+      
+        int i,j;
+        for(i=1;i<=input;i++){
+            for(j=1;j<=input;j++){
+                if(j<=i){
+                       System.out.print("*");
+                }
+                else {
+                     System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+        
+    
+	}
+}
