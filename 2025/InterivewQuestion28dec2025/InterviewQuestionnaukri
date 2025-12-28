@@ -1,0 +1,116 @@
+What are the different dashboards in JIRA?
+Ans. Different dashboards in JIRA include Agile, Scrum, Kanban, and Burndown charts.
+Agile dashboard: Provides an overview of the project's progress using Agile methodologies.
+
+Scrum dashboard: Focuses on sprint planning, backlog management, and team performance.
+
+Kanban dashboard: Visualizes work in progress, bottlenecks, and cycle time.
+
+Burndown charts: Shows the remaining work in a sprint or project over time.
+
+
+Explain the difference between REST and SOAP APIs with real-world examples.
+Ans. REST is an architectural style using HTTP, while SOAP is a protocol with strict standards for web services.
+REST uses standard HTTP methods (GET, POST, PUT, DELETE) for communication.
+
+SOAP relies on XML and has a strict messaging protocol, often using HTTP or SMTP.
+
+REST is stateless, meaning each request from a client contains all the information needed to process it.
+
+SOAP supports stateful operations, allowing for complex transactions.
+
+REST is generally easier to use and more flexible, making it suitable for web applications like Twitter API.
+
+SOAP is often used in enterprise-level applications requiring high security and ACID compliance, such as banking services.
+
+
+
+What is synchronization in Selenium, and how do you implement it to handle timing issues during test execution?
+Ans. Understanding synchronization in Selenium to handle timing issues during test execution
+Approach
+Identify timing issues such as elements not being immediately available or interactions attempted before page load.
+Use implicit waits to specify a default waiting time for the WebDriver to poll the DOM for elements before throwing an exception.
+Use explicit waits to wait for specific conditions to occur before proceeding, such as waiting for visibility or clickability of an element.
+Use fluent waits for more fine-grained control over polling intervals and exception handling during wait periods.
+Apply appropriate wait strategy based on test scenario to ensure robust test execution without unnecessary delays.
+java
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.By;
+import java.time.Duration;
+import org.openqa.selenium.support.ui.FluentWait;
+import java.util.function.Function;
+
+// Implicit wait
+// driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+// Explicit wait example
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("elementId")));
+
+// Fluent wait example
+FluentWait<WebDriver> fluentWait = new FluentWait<>(driver)
+  .withTimeout(Duration.ofSeconds(15))
+  .pollingEvery(Duration.ofSeconds(2))
+  .ignoring(org.openqa.selenium.NoSuchElementException.class);
+
+WebElement fluentElement = fluentWait.until(new Function<WebDriver, WebElement>() {
+    public WebElement apply(WebDriver driver) {
+        return driver.findElement(By.id("elementId"));
+    }
+});
+
+
+hat is the difference between element and elements?
+Ans. Element is a singular object, while elements refer to multiple objects.
+Element is a single item in a collection or array.
+
+Elements are multiple items in a collection or array.
+
+Example: 'apple' is an element in the array ['apple', 'banana', 'orange'].
+
+Example: 'banana' and 'orange' are elements in the same array.
+
+
+
+Q. What is the difference between schema and database testing?
+Ans. Schema testing focuses on the structure of the database, while database testing focuses on the data within the database.
+Schema testing ensures that the database tables, columns, relationships, and constraints are correctly defined.
+
+Database testing involves verifying the data stored in the database, such as data integrity, accuracy, and consistency.
+
+Schema testing is more focused on the design and structure of the database, while database testing is more concerned with the content and functionality.
+
+Examples of schema testing include checking for proper data types, constraints, and indexes, while database testing may involve validating data migrations, CRUD operations, and data retrieval.
+
+Both types of testing are important for ensuring the overall quality and reliability of the database.
+
+Describe the ACID properties in the context of SQL databases. Provide examples of how each property is ensured.
+Ans. ACID properties ensure reliable processing of database transactions, maintaining data integrity and consistency.
+Atomicity: Transactions are all-or-nothing. Example: If a bank transfer fails, no money is deducted or added.
+
+Consistency: Transactions bring the database from one valid state to another. Example: A transaction must not violate any database rules.
+
+Isolation: Transactions occur independently. Example: Two transactions should not interfere with each other, ensuring data integrity.
+
+Durability: Once a transaction is committed, it remains so even in case of a system failure. Example: A completed order remains in the database.
+Q. Tell me the edge cases you would consider while designing the signup flow.
+Ans. Consider various edge cases in signup flow to ensure a seamless user experience and robust system performance.
+User enters invalid email format (e.g., missing '@' symbol).
+
+User tries to sign up with an already registered email address.
+
+User's password does not meet security criteria (e.g., too short, lacks special characters).
+
+User attempts to sign up from a region where the service is not available.
+
+User's session times out while filling out the form, leading to data loss.
+
+User tries to sign up using a temporary or disposable email address.
+
+User's internet connection drops during the signup process.
+
+User enters a phone number in an unsupported format or country code.
