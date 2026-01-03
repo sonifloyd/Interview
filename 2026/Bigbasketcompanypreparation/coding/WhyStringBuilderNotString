@@ -1,0 +1,41 @@
+Short Answer (One-liner)
+
+String immutable hoti hai, har concatenation pe naya object banta hai, jabki
+StringBuilder mutable hota hai, isi object me change karta hai — isliye fast h
+
+🔹 String Problem (Why NOT preferred)
+Example
+String result = "";
+result = result + 'a';
+result = result + 'b';
+result = result + 'c';
+
+Kya hota hai internally?
+""        → new object
+"a"       → new object
+"ab"      → new object
+"abc"     → new object
+
+
+❌ Har step pe naya String object
+❌ Extra memory + slow performance
+
+➡️ Loop me use karoge to
+Time Complexity = O(n²)
+
+🔹 StringBuilder Advantage (Why YES)
+Example
+StringBuilder result = new StringBuilder();
+result.append('a');
+result.append('b');
+result.append('c');
+
+Internally
+
+Same object modify hota hai
+
+No extra objects created
+
+✅ Fast
+✅ Memory efficient
+➡️ Time Complexity = O(n)
