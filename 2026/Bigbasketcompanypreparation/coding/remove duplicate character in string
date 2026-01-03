@@ -1,0 +1,67 @@
+----- Brute force approach --------
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        String s = "programming";
+        String result = "";
+
+        for (int i = 0; i < s.length(); i++) {
+            char current = s.charAt(i);
+            if (result.indexOf(current) == -1) {
+                result += current;
+            }
+        }
+
+        System.out.println(result);
+    }
+}
+
+⏱ Time Complexity
+➡️ O(n²)
+indexOf() bhi O(n) time leta hai -> ye charter 1st time to -1 and 2 nd ya multiple time hai to 0 return karta hai 
+
+💾 Space Complexity
+➡️ O(1) (output ko ignore karein)
+---------------------
+Using LinkedHashSet
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        String s = "programming";
+
+        Set<Character> set = new LinkedHashSet<>();
+
+        for (char c : s.toCharArray()) {
+            set.add(c);
+        }
+
+        StringBuilder result = new StringBuilder();
+        for (char c : set) {
+            result.append(c);
+        }
+
+        System.out.println(result.toString());
+    }
+}
+
+Time Complexity
+
+➡️ O(n)
+
+💾 Space Complexity
+
+➡️ O(n)
+
+----------------------
+Approach 2: Using HashSet (Order Not Required)
+Set<Character> set = new HashSet<>();
+
+
+⚠️ Order guaranteed nahi hota, baki logic same.
+
+TC: O(n)
+
+SC: O(n)
+----
