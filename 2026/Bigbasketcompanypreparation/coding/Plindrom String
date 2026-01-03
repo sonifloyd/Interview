@@ -1,0 +1,62 @@
+Without Inbuilt (Two Pointer – Best for Interview)
+public class PalindromeCheck {
+    public static void main(String[] args) {
+        String s = "madam";
+        boolean isPalindrome = true;
+
+        int start = 0;
+        int end = s.length() - 1;
+
+        while (start < end) {
+            if (s.charAt(start) != s.charAt(end)) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
+        }
+
+        System.out.println(isPalindrome);
+    }
+}
+
+Time Complexity
+
+➡️ O(n)
+
+💾 Space Complexity
+
+➡️ O(1)
+
+------------------------------------------
+Approach 2: Reverse String (Using StringBuilder)
+
+
+String s = "madam";
+
+String reverse = new StringBuilder(s).reverse().toString();
+
+if (s.equals(reverse)) {
+    System.out.println("Palindrome");
+} else {
+    System.out.println("Not Palindrome");
+}
+⏱ Time Complexity
+
+➡️ O(n)
+
+💾 Space Complexity
+
+➡️ O(n)
+------------------------------------------------
+Approach 3: Without Extra Space (Using Loop + String)
+String s = "madam";
+String reverse = "";
+
+for (int i = s.length() - 1; i >= 0; i--) {
+    reverse += s.charAt(i);
+}
+
+System.out.println(s.equals(reverse));
+⚠️ TC = O(n²) (because of String concatenation)
+
