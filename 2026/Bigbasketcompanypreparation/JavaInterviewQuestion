@@ -1,0 +1,99 @@
+Why Java String immutable hoti hai?
+
+Answer (Real Time)
+
+Security + Performance + Thread safety ke liye.
+
+🧠 Real-Time Example
+String token = "abc123";
+
+
+Agar String mutable hoti:
+
+Koi bhi thread token change kar deta
+
+Security breach ho jata (login/session token)
+
+-----------------------------
+Difference between == and .equals()
+❓ Question
+
+== aur .equals() me difference?
+
+🧠 Real-Time Example (Login validation)
+String dbPassword = new String("admin");
+String userPassword = new String("admin");
+
+System.out.println(dbPassword == userPassword);      // false
+System.out.println(dbPassword.equals(userPassword)); // true
+
+Explanation
+
+== → memory reference compare
+
+equals() → content compare
+
+➡️ Login check hamesha equals() se
+-------------------------------------------------
+
+3️⃣ Why StringBuilder preferred over String?
+❓ Question
+
+Loop me StringBuilder kyun use karte ho?
+
+🧠 Real-Time Example (Log generation)
+for(int i=0;i<1000;i++){
+   result.append(i);
+}
+
+✅ Reason
+
+String → har time new object
+StringBuilder → same object modify
+
+➡️ Performance fast hoti hai
+
+4.Exception vs Error
+❓ Question
+
+Exception aur Error ka difference?
+
+🧠 Real-Time Example
+
+Exception → NullPointerException (recoverable)
+
+Error → OutOfMemoryError (non-recoverable)
+
+➡️ Exception handle kar sakte hain
+➡️ Error nahi
+-----------------------------------
+6️⃣ Checked vs Unchecked Exception
+🧠 Real-Time Example
+FileInputStream fis = new FileInputStream("data.txt"); // Checked
+int a = 10 / 0; // Unchecked
+
+Checked	Unchecked
+Compile time	Runtime
+IOException	ArithmeticException
+------------------
+OOPS – Encapsulation (Real-Time)
+❓ Question
+
+Encapsulation kya hai?
+
+🧠 Real-Time Example (Bank Account)
+class Account {
+   private double balance;
+
+   public double getBalance() {
+      return balance;
+   }
+---------------------
+Final keyword ka use?
+🧠 Real-Time Example
+final String BASE_URL = "https://api.bigbasket.com";
+
+
+➡️ URL change nahi hona chahiye
+➡️ Configuration safety
+----------------------
