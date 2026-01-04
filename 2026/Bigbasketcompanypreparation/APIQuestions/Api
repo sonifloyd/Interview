@@ -1,0 +1,16 @@
+REST (Representational State Transfer) ek architectural style hai jisme client aur server HTTP protocol ke through data exchange karte hain (mostly JSON format).
+
+HTTP Methods Difference (With Real Use Case)
+Method	Use	Real Example
+GET	Data fetch	Get product list
+POST	New data create	Register / Login
+PUT	Full update	Update profile
+DELETE	Delete data	Delete address
+
+Code	Meaning	Real Example
+200	Success	Login success
+201	Created	User registered
+400	Bad request	Missing password
+401	Unauthorized	Wrong credentials
+403	Forbidden	No access
+500	Server error	Backend crash
