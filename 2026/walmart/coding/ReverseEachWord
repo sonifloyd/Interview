@@ -1,0 +1,67 @@
+public class ReverseEachWord {
+    public static void main(String[] args) {
+
+        String input = "I love Walmart";
+        String[] words = input.split(" ");
+        StringBuilder result = new StringBuilder();
+
+        for (String word : words) {
+            StringBuilder sb = new StringBuilder(word);
+            result.append(sb.reverse()).append(" ");
+        }
+
+        System.out.println(result.toString().trim());
+    }
+}
+output- 
+I evol tramlaW
+-------
+Split sentence into words
+String[] words = input.split(" ");
+Sentence ko words array me todta hai
+"I love Walmart" → ["I","love","Walmart"]
+
+2️⃣ Result store karne ke liye
+StringBuilder result = new StringBuilder();
+
+Reverse word
+StringBuilder sb = new StringBuilder(word);
+result.append(sb.reverse()).append(" ");
+StringBuilder.reverse() → efficient
+Space maintain karne ke liye " " add
+
+5️⃣ Extra space remove
+result.toString().trim();
+
+⏱️ Complexity
+Time: O(n)
+Space: O(n)
+
+Why not use String concatenation (+)?
+
+👉 String immutable hai → performance issue
+👉 StringBuilder efficient hai
+
+Can you do it without split()?
+Yes (manual approach):
+String input = "I love Walmart";
+StringBuilder word = new StringBuilder();
+StringBuilder result = new StringBuilder();
+
+for (char ch : input.toCharArray()) {
+    if (ch != ' ') {
+        word.append(ch);
+    } else {
+        result.append(word.reverse()).append(" ");
+        word.setLength(0);
+    }
+}
+result.append(word.reverse());
+System.out.println(result);
+
+What about multiple spaces?
+👉 Use regex:
+input.split("\\s+");
+
+
+
