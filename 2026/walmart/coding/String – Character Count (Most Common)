@@ -1,0 +1,69 @@
+
+
+Input: "walmart"
+Output: w=1, a=2, l=1, m=1, r=1, t=1
+✔ Order maintain होना चाहिए
+
+
+
+----------------------------------------------------------------------------
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class CharacterCount {
+    public static void main(String[] args) {
+
+        String input = "walmart";
+        Map<Character, Integer> map = new LinkedHashMap<>();
+
+        for (char ch : input.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            System.out.print(entry.getKey() + "=" + entry.getValue() + " ");
+        }
+    }
+}
+
+toCharArray() → String ko char[] me convert karta hai
+map.put(ch, map.getOrDefault(ch, 0) + 1);
+map.getOrDefault(ch, 0)
+Agar ch pehle se map me hai → uski value return karega
+Agar nahi hai → default value 0 return karega
+🧠 Example:
+First time 'a' → getOrDefault('a',0) = 0
+Second time 'a' → getOrDefault('a',0) = 1
+
+  map.put(ch, value)
+Character ko map me insert / update karta hai
+'a' → 0 + 1 = 1
+'a' → 1 + 1 = 2
+
+  for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+Map ko iterate karne ke liye
+entrySet() → key + value dono ek saath deta hai
+System.out.print(entry.getKey() + "=" + entry.getValue() + " ");
+getKey() → character
+getValue() → count
+“First loop counts characters using getOrDefault, second loop prints them in insertion order using LinkedHashMap.”
+
+Map.Entry<K, V> ek inner interface hai jo Map ke ek single data pair ko represent karta hai.
+Character = Key
+Integer   = Value
+
+Entry ke methods
+entry.getKey();    // Key deta hai
+entry.getValue();  // Value deta hai
+Single object me key + value
+
+What is the advantage of using Map.Entry?
+Answer:
+It allows iterating over key-value pairs efficiently without additional lookups
+
+Can we modify value using Entry?
+Yes ✅
+entry.setValue(entry.getValue() + 1);
+Key change nahi kar sakte
+  
