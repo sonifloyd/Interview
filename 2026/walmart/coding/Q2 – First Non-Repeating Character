@@ -1,0 +1,68 @@
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class FirstNonRepeatingChar {
+    public static void main(String[] args) {
+
+        String input = "automation";
+        Map<Character, Integer> map = new LinkedHashMap<>();
+
+        // Step 1: Count characters
+        for (char ch : input.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+
+        // Step 2: Find first non-repeating character
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() == 1) {
+                System.out.println(entry.getKey());
+                break;
+            }
+        }
+    }
+}
+
+Why this works (Interview Explanation)
+
+LinkedHashMap → insertion order maintain
+
+First loop → frequency count
+
+Second loop → first value == 1 milte hi break
+
+Efficient & readable
+
+
+Complexity
+
+Time: O(n)
+
+Space: O(n)
+
+---
+Why not use HashMap?
+
+👉 Order guarantee nahi, isliye “first” non-repeating galat ho sakta hai.
+
+❓ Can you do it without Map?
+
+Yes (Array approach):
+int[] freq = new int[256];
+
+for (char ch : input.toCharArray()) {
+    freq[ch]++;
+}
+
+for (char ch : input.toCharArray()) {
+    if (freq[ch] == 1) {
+        System.out.println(ch);
+        break;
+    }
+}
+What if no non-repeating character exists?
+Handle with flag / Optional
+System.out.println("No unique character found");
+
+Walmart Interview One-liner
+
+“I used LinkedHashMap to preserve order and efficiently find the first non-repeating character in O(n).”
