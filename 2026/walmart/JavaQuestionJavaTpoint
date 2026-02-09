@@ -1,0 +1,130 @@
+What will be the default values of all the elements of an array defined as an instance variable?
+Data Type	Default Value
+byte	0
+short	0
+int	0
+long	0L
+float	0.0f
+double	0.0d
+char	'\u0000' (null character)
+boolean	false
+Reference types (String, Objects)	null
+
+Important interview point ⭐
+✅ Instance variables → auto-initialized
+❌ Local variables → NOT auto-initialized (compiler error if used without assignment)
+-----------------------------------------------------------------------------------------------
+How does a try statement determine which catch clause should be used to handle an exception?
+
+try kaise decide karta hai kaunsa catch chalega?
+
+1️⃣ Error aate hi Java catch blocks ko upar se niche check karta hai
+
+2️⃣ Jo catch error ke type se match karta hai,
+wahi pehle wala catch execute hota hai
+
+3️⃣ Agar exact match mil gaya → wahi catch chalega
+Agar exact nahi mila → parent (bada) exception wala catch chalega
+try {
+    int a = 10 / 0;
+}
+catch (ArithmeticException e) {
+    System.out.println("Math error");
+}
+catch (Exception e) {
+    System.out.println("General error");
+}
+
+❌ Invalid:
+
+catch (Exception e) { }
+catch (ArithmeticException e) { } // Compile-time error
+---------------------------------------------------------------
+Can a double value be cast to a byte?
+Yes 👍 double value ko byte me cast kiya ja sakta hai, lekin manually (explicit cast) karna padta hai.
+Simple answer
+double d = 130.7;
+byte b = (byte) d;
+System.out.println(b); // -126
+
+Ye aisa kyon hota hai? (simple language)
+1️⃣ double → byte = narrowing conversion
+👉 Java automatically allow nahi karta
+👉 Isliye (byte) likhna compulsory hai
+2️⃣ Decimal part cut ho jata hai
+130.7 → 130
+3️⃣ Byte range hota hai:
+-128 to 127
+-128 to 127   (total 256 values)
+2ka power 8 bits 8 bits ka hota hai 
+4️⃣ Range se bahar value wrap ho jati hai
+130 - 256 = -126
+Aur examples
+(double) 10.9  → byte = 10
+(double) 127.0 → byte = 127
+(double) 128.0 → byte = -128
+(double) -130  → byte = 126
+
+What is constructor chaining and how is it achieved in Java?
+Constructor chaining is the process of calling one constructor from another constructor 
+using this() for same class and super() for parent class to reuse code and ensure proper initialization.
+1️⃣ this() aur super() ek hi constructor me saath me nahi ho sakte
+2️⃣ Dono me se koi bhi ho → first statement hona chahiye
+3️⃣ Constructor chaining se initialization flow clear hota hai
+
+
+super() – parent class ke constructor ko call karne ke liye
+class Parent {
+    Parent() {
+        System.out.println("Parent constructor");
+    }
+}
+
+class Child extends Parent {
+    Child() {
+        super();   // parent constructor call
+        System.out.println("Child constructor");
+    }
+}
+
+
+Output:
+
+Parent constructor
+Child constructor
+Agar super() likho ya na likho, Java automatically parent ka default constructor call karta hai.
+---
+1️⃣ this() – same class ke constructor ko call karne ke liye
+class Student {
+    int id;
+    String name;
+
+    Student() {
+        this(101, "Soni");   // same class ka constructor call
+        System.out.println("Default constructor");
+    }
+
+    Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+        System.out.println("Parameterized constructor");
+    }
+}
+
+
+Output:
+
+Parameterized constructor
+Default constructor
+
+
+🔑 Rule:
+
+this() hamesha first line me likhna hota hai
+
+--------------------------------------------------------------------------------------------
+What restrictions are placed on method overriding?
+
+
+
+
