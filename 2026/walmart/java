@@ -1,0 +1,24 @@
+Differnce b/w abstraction and interface 
+
+  What is encapsulation .
+
+  explain about synchronic in selenom
+
+  differnce throw and throws
+
+  no such element exception 
+
+  method to get page title .
+
+  multiple window , multiple browser 
+
+  explain about page object model
+  differnce b/w click and submit 
+
+-----
+  String a = new String("Walmart");
+String b = new String("Walmart");
+
+System.out.println(a == b);        // false
+System.out.println(a.equals(b));   // true
+
