@@ -2,6 +2,22 @@
 The problem is with the input.nextInt() method - it only reads the int value. So when you continue reading with input.nextLine() 
 you receive the "\n" Enter key. So to skip this you have to add the input.nextLine(). Hope this should be clear now.
 
+--
+nextInt() sirf number read karta hai, Enter (\n) ko buffer me chhod deta hai.
+Isliye jab nextLine() call karte ho, wo us leftover \n ko read kar leta hai aur string empty ho jati hai.
+👉 input.nextLine(); isliye add karte hain taaki wo leftover newline consume ho jaye aur next nextLine() properly input le sake.
+
+----
+Agar ye line na lagao toh kya hoga?
+Output kuch aisa ho sakta hai:
+Insert a number: 5
+Text1:
+Text2: Hello
+⚠ Text1 empty ho jayega
+⚠ Hello text2 me chala jayega
+
+--- ------
+
 System.out.print("Insert a number: ");
 int number = input.nextInt();
 input.nextLine(); // This line you have to add (It consumes the \n character)
@@ -9,3 +25,16 @@ System.out.print("Text1: ");
 String text1 = input.nextLine();
 System.out.print("Text2: ");
 String text2 = input.nextLine();
+---
+
+-----
+System.out.print("Insert a number: ");
+int number = input.nextInt();
+input.nextLine(); // consume leftover newline
+
+System.out.print("Text1: ");
+String text1 = input.nextLine();
+
+System.out.print("Text2: ");
+String text2 = input.nextLine();
+
