@@ -1,5 +1,17 @@
 The Page Object Model (POM) is a design pattern that helps in creating object repositories for web UI elements. Each web page is represented as a separate class, 
 and the elements on the page are defined as class members. This improves test maintenance and reusability.
+--
+Page Object Model is a design pattern in Selenium where 
+each web page is represented as a class containing locators and reusable methods for page actions.
+
+--
+It is a design pattern used in Selenium to make automation framework clean, reusable, and maintainable.
+Simple Meaning
+👉 Har web page ke liye ek separate class banate hain.
+👉 Us class me:
+Web elements (locators)
+Page actions (methods)
+define karte hain
 
 
 public class LoginPage {
@@ -29,3 +41,8 @@ public class LoginPage {
     }
 }
 
+Test Class
+LoginPage lp = new LoginPage(driver);
+lp.enterUsername("soni");
+lp.enterPassword("1234");
+lp.clickLogin();
