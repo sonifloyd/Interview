@@ -1,0 +1,188 @@
+What is Method Overriding?
+
+👉 When a child class provides its own implementation of a method that is already defined in the parent class.
+
+Simple words:
+
+Same method name + same parameters + inheritance = Method Overriding
+
+🔷 Example
+class Animal {
+    void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {   // overriding
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal obj = new Dog();
+        obj.sound();
+    }
+}
+
+🔥 Output
+Dog barks
+
+🔥 Why Dog method runs?
+
+Because of Runtime Polymorphism.
+
+Java decides at runtime which method to call.
+
+🔷 Rules of Method Overriding
+
+1️⃣ Must have inheritance (extends)
+2️⃣ Method name must be same
+3️⃣ Parameters must be same
+4️⃣ Return type must be same (or covariant)
+5️⃣ Access modifier cannot be more restrictive
+
+🔥 Example of Wrong Overriding
+class Animal {
+    void sound() {}
+}
+
+class Dog extends Animal {
+    private void sound() {}   // ❌ ERROR
+}
+
+
+You cannot reduce visibility.
+
+🔥 Static Methods Cannot Be Overridden
+class A {
+    static void show() {}
+}
+
+class B extends A {
+    static void show() {}
+}
+
+
+This is not overriding.
+This is called method hiding.
+
+🔥 Real-Life Example
+
+Parent: Bank account
+Child: Savings account
+
+Both have:
+
+calculateInterest()
+
+
+But savings account calculates differently.
+
+🎯 Interview One-Line Answer
+
+“Method overriding occurs when a subclass provides a specific implementation of a method that is already defined in its superclass.”
+
+🔥 Important Difference
+Overloading	Overriding
+Same method name	Same method name
+Different parameters	Same parameters
+Compile-time	Runtime
+No inheritance required	Inheritance required
+
+If you want, I can explain:
+
+super keyword in overriding
+
+final method and overriding
+
+real interview tricky questions 😄
+
+class Animal {
+    void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {   // overriding
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal obj = new Dog(); agar yha pe animal obj = new animal karte ho kyaoutpit hita 
+        obj.sound();
+    }
+}
+
+Very good question 👏🔥
+You are thinking correctly about polymorphism.
+
+You asked:
+
+👉 If we write:
+
+Animal obj = new Animal();
+
+
+Instead of:
+
+Animal obj = new Dog();
+
+
+Then what will be output?
+
+🔷 Case 1 (Original Code)
+Animal obj = new Dog();
+obj.sound();
+
+
+Output:
+
+Dog barks
+
+
+Why?
+Because object created is Dog.
+At runtime Java checks object type → Dog → so Dog’s method runs.
+
+🔷 Case 2 (Your Question)
+Animal obj = new Animal();
+obj.sound();
+
+
+Now object created is Animal.
+
+So output will be:
+
+Animal makes sound
+
+🔥 Important Concept
+
+In method overriding:
+
+👉 Method call depends on object type, not reference type.
+
+🔷 Understand This Clearly
+Reference Type	Object Type	Output
+Animal	Animal	Animal makes sound
+Animal	Dog	Dog barks
+Dog	Dog	Dog barks
+🔥 Key Rule (Very Important for Interview)
+
+“Method overriding follows runtime polymorphism, and the method is decided based on the object created, not reference type.”
+
+🔷 Simple Real-Life Example
+
+Think:
+
+Animal obj = new Dog();
+
+
+Reference = Animal
+Object = Dog
+
+But actual behavior depends on real object (Dog).
