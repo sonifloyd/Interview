@@ -1,0 +1,102 @@
+Difference Between Static Method and Instance Method
+Feature	Static Method	Instance Method
+Belongs To	Class	Object
+Keyword	static used	No static
+Object Required?	❌ No	✅ Yes
+Can Access Static Variables?	✅ Yes	✅ Yes
+Can Access Instance Variables Directly?	❌ No	✅ Yes
+Memory	Only one copy	Each object has access
+🔥 1️⃣ Static Method
+Definition:
+
+A method declared using static keyword.
+
+Example:
+class Test {
+    static int cube(int n) {
+        return n * n * n;
+    }
+}
+
+Calling:
+System.out.println(Test.cube(3));
+
+
+👉 No object needed.
+
+🔥 2️⃣ Instance Method
+Definition:
+
+A method without static keyword.
+
+Example:
+class Test {
+    public void msg() {
+        System.out.println("Hello");
+    }
+}
+
+Calling:
+Test obj = new Test();
+obj.msg();
+
+
+👉 Object is required.
+
+🔥 Why Static Method Cannot Access Instance Variables Directly?
+
+Example:
+
+class Demo {
+    int x = 10;       // instance variable
+    static int y = 20; // static variable
+
+    static void show() {
+        System.out.println(y); // ✅ allowed
+        System.out.println(x); // ❌ ERROR
+    }
+}
+
+Why error?
+
+Because:
+
+x belongs to object
+
+But static method runs without object
+
+So no object → no instance variable access
+
+🔥 Instance Method Can Access Both
+class Demo {
+    int x = 10;
+    static int y = 20;
+
+    void display() {
+        System.out.println(x); // ✅
+        System.out.println(y); // ✅
+    }
+}
+
+
+Because instance method runs with object.
+
+🎯 Real Life Example
+
+Think:
+
+Class = College
+Static method = College rules (same for all)
+Instance method = Student behavior (different per student)
+
+🔥 Interview One-Line Answer
+
+“Static method belongs to class and can be called without object, while instance method belongs to object and requires object to be called.”
+
+⚡ Important Extra Points (Interview Level)
+
+Static method cannot be overridden (only hidden).
+
+Instance method can be overridden.
+
+main() is static method.
