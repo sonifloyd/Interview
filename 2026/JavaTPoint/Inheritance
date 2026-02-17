@@ -1,0 +1,80 @@
+Inheritance in Java
+✅ Definition (Interview Line)
+
+Inheritance is a mechanism where one class acquires the properties and behavior of another class using the extends keyword.
+
+class Animal {
+
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+class Dog extends Animal {
+
+    void bark() {
+        System.out.println("Dog is barking");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Dog d = new Dog();
+
+        d.eat();   // inherited method
+        d.bark();  // own method
+    }
+}
+🖥 Output
+Animal is eating
+Dog is barking
+🔥 What Happened Here?
+Dog extends Animal
+
+So Dog gets eat() automatically
+
+No need to rewrite code
+
+👉 This improves code reusability
+
+🔹 Types of Inheritance in Java
+Type	Supported?
+Single	✅ Yes
+Multilevel	✅ Yes
+Hierarchical	✅ Yes
+Multiple (class to class)	❌ No
+Multiple (using interface)	✅ Yes
+🔥 Example of Multilevel
+class Animal {
+    void eat() {
+        System.out.println("Eating");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking");
+    }
+}
+
+class Puppy extends Dog {
+    void weep() {
+        System.out.println("Weeping");
+    }
+}
+Puppy now has:
+
+eat()
+
+bark()
+
+weep()
+
+🎯 Interview Short Answer
+Inheritance allows a child class to reuse the properties and methods of a parent class. 
+It is achieved using the extends keyword and promotes code reusability.
+
+
+
+
