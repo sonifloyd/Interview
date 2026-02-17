@@ -1,0 +1,158 @@
+public class Main {    
+    int rollno;    
+    String name;    
+    static final String COLLEGE = "ITS";    
+    Main(int r, String n) {    
+        rollno = r;    
+        name = n;    
+    }    
+    void display() {   
+        System.out.println(rollno + " " + name + " " + COLLEGE);   
+    }    
+    public static void main(String[] args) {    
+        Main obj1 = new Main (111, "Karan");  
+        Main obj2 = new Main(222, "Aryan");    
+        obj1.display();    
+        obj2.display();    
+    }    
+}  
+-------------------------
+Variables in Your Code
+int rollno;          // instance variable
+String name;         // instance variable
+static final String COLLEGE = "ITS";   // static + final variable
+
+🔹 What Does static final Mean?
+✅ static
+
+Belongs to class
+
+Shared by all objects
+
+Only one copy in memory
+
+✅ final
+
+Value cannot be changed
+
+Becomes constant
+
+So:
+
+static final String COLLEGE = "ITS";
+
+
+👉 Means:
+
+All students have same college
+
+It cannot be modified
+
+Only one copy exists
+
+🔹 Object Creation
+Main obj1 = new Main (111, "Karan");
+Main obj2 = new Main(222, "Aryan");
+
+
+Constructor assigns:
+
+obj1 → rollno = 111, name = Karan
+obj2 → rollno = 222, name = Aryan
+
+
+But COLLEGE is shared.
+
+🔹 display() Method
+System.out.println(rollno + " " + name + " " + COLLEGE);
+
+
+For obj1:
+
+111 Karan ITS
+
+
+For obj2:
+
+222 Aryan ITS
+
+✅ Final Output
+111 Karan ITS
+222 Aryan ITS
+
+🔥 Important Interview Points
+
+static variable → shared among all objects
+
+final variable → cannot be changed
+
+static final → constant
+
+-----------------------------
+Step 1: Program Starts
+public static void main(String[] args)
+
+
+Execution starts from main().
+
+🔹 Step 2: First Object Created
+Main obj1 = new Main(111, "Karan");
+
+
+👉 Constructor runs:
+
+Main(int r, String n) {
+    rollno = r;     // 111
+    name = n;       // "Karan"
+}
+
+
+So:
+
+obj1.rollno = 111
+obj1.name = Karan
+COLLEGE = ITS  (shared, already fixed)
+
+🔹 Step 3: Second Object Created
+Main obj2 = new Main(222, "Aryan");
+
+
+Constructor runs again:
+
+obj2.rollno = 222
+obj2.name = Aryan
+COLLEGE = ITS (same shared copy)
+
+🔹 Step 4: First Display Call
+obj1.display();
+
+
+Prints:
+
+111 Karan ITS
+
+🔹 Step 5: Second Display Call
+obj2.display();
+
+
+Prints:
+
+222 Aryan ITS
+
+✅ Final Output on Console
+111 Karan ITS
+222 Aryan ITS
+
+🔥 Execution Flow Summary
+
+main() starts
+
+obj1 created → constructor runs
+
+obj2 created → constructor runs
+
+obj1.display() prints
+
+obj2.display() prints
+
+If you want, I can also draw memory diagram to show how static variable is stored separately 😄
