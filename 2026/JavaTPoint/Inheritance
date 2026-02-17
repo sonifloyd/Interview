@@ -75,6 +75,11 @@ weep()
 Inheritance allows a child class to reuse the properties and methods of a parent class. 
 It is achieved using the extends keyword and promotes code reusability.
 
+How Inheritance is Achieved in Java?
+
+👉 Using the extends keyword (for classes)
+👉 Using the implements keyword (for interfaces)
+
 
 
 
