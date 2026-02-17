@@ -1,0 +1,53 @@
+What is OOPS?
+
+OOPS = Object-Oriented Programming System
+
+It is based on 4 main concepts:
+
+Encapsulation
+
+Abstraction
+
+Inheritance
+
+Polymorphism
+
+Abstraction means hiding implementation details and showing only important features.
+When you use an ATM machine:
+
+You insert card
+
+Enter PIN
+
+Select Withdraw
+
+Get cash
+
+👉 You don’t know:
+
+How bank server validates PIN
+
+How balance is checked
+
+How machine counts notes
+
+How transaction is logged
+
+You only see important features (Withdraw, Deposit, Check Balance).
+The implementation is hidden.
+In Java, Abstraction can be achieved in two main ways:
+
+1️⃣ Using Abstract Class
+2️⃣ Using Interface
+
+🔹 1️⃣ Using Abstract Class
+
+An abstract class can have:
+
+Abstract methods (no body)
+
+Normal methods (with body)
+
+Variables
+
+Constructors
