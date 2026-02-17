@@ -1,0 +1,110 @@
+public class Main    
+{    
+    Main(int a, int b)    
+    {    
+        System.out.println("a = "+a+" b = "+b);    
+    }    
+    Main(int a, float b)    
+    {    
+        System.out.println("a = "+a+" b = "+b);    
+    }    
+    public static void main (String args[])    
+    {    
+        byte a = 10;     
+        byte b = 15;    
+        Main obj = new Main(a,b);    
+    }    
+}    
+Output:
+
+a = 10 b = 15
+-------------------
+Important Concept: Type Promotion in Java
+Java automatically promotes:
+byte → short → int → long → float → double
+So byte can automatically become int.
+---
+Constructors Available
+Main(int a, int b)
+Main(int a, float b)
+
+
+So we have two constructors:
+
+(int, int)
+
+(int, float)
+
+🔹 In main method
+byte a = 10;
+byte b = 15;
+
+Main obj = new Main(a, b);
+
+
+Here:
+
+a is byte
+
+b is byte
+
+But constructors expect:
+
+(int, int)
+
+(int, float)
+
+🔥 Important Concept: Type Promotion in Java
+
+Java automatically promotes:
+
+byte → short → int → long → float → double
+
+
+So byte can automatically become int.
+
+🔹 What Happens Internally?
+
+Call:
+
+new Main(a, b);
+
+
+Means:
+
+new Main(byte, byte)
+
+
+Java checks best matching constructor.
+
+Option 1:
+(byte → int)
+(byte → int)
+
+
+Matches (int, int) ✔
+
+Option 2:
+(byte → int)
+(byte → float)
+
+
+Also possible, but this needs one extra conversion (int → float).
+
+Java always chooses the most specific / least conversion option.
+
+So it selects:
+
+Main(int a, int b)
+
+✅ Output:
+a = 10 b = 15
+
+
+From first constructor.
+
+🔥 Important Interview Rule
+
+When multiple overloaded methods/constructors exist:
+
+👉 Java chooses the method with minimum type conversion.
