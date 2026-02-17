@@ -1,0 +1,9 @@
+Difference Between Method Overloading and Method Overriding
+Feature	Overloading	Overriding
+Method Name	Same	Same
+Parameters	Must be different	Must be same
+Class Requirement	Same class	Parent–Child class
+Inheritance Required?	❌ No	✅ Yes
+Execution Time	Compile-time	Runtime
+Polymorphism Type	Compile-time polymorphism	Runtime polymorphism
+Return Type	Can change (if parameters change)	Must be same (or covariant)
