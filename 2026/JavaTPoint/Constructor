@@ -1,0 +1,30 @@
+24) What is an object?
+The Object is a real-time entity having some state and behavior.
+
+What will be the initial value of an object reference that is defined as an instance variable?
+In Java, when an object reference is declared as an instance variable (a member variable of a class). It is automatically
+initialized to null by default. It is true for all object references, regardless of the class type.
+
+
+What is constructore.
+Constructor is a special method used to initialize an object when it is created."
+Important Points (Interview ke liye)
+
+Constructor ka naam class ke naam jaisa hi hota hai
+Constructor ka koi return type nahi hota (not even void)
+Object create hote hi automatically call hota hai
+Ek class me multiple constructors ho sakte hain (Constructor Overloading)
+
+
+What is a Constructor in Java?
+
+👉 Constructor ek special method hota hai jo object banate time automatically run hota hai.
+
+Jab bhi hum new keyword se object create karte hain, constructor call hota hai.
+Real Life Example
+
+Socho:
+Class = 🏠 House design
+Object = Real house
+
+Constructor = Jab ghar ban raha hai tab initial setup (paint, doors, windows).
