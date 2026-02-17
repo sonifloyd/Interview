@@ -1,0 +1,68 @@
+Can we declare an interface as final? -> n0
+so, the compiler will show an error.
+
+q2.---
+Class Test   
+{  
+    public static void main (String args[])   
+    {  
+        System.out.println(10 + 20 + "Tpointtech");   
+        System.out.println("Tpointtech" + 10 + 20);  
+    }  
+} 
+
+How Java evaluates this:
+
+Java evaluates left to right.
+
+Step 1:
+
+10 + 20 = 30   (integer addition)
+
+
+Step 2:
+
+30 + "Tpointtech"
+
+
+Now since one operand is a String, Java performs String concatenation.
+
+So output becomes:
+
+30Tpointtech
+
+🔹 Second Line
+System.out.println("Tpointtech" + 10 + 20);
+
+👉 How Java evaluates this:
+
+Step 1:
+
+"Tpointtech" + 10
+
+
+When String comes first, everything after becomes String.
+
+So:
+
+"Tpointtech10"
+
+
+Step 2:
+
+"Tpointtech10" + 20
+
+
+Result:
+
+Tpointtech1020
+
+✅ Final Output
+30Tpointtech
+Tpointtech1020
+
+🔥 Important Interview Rule
+
+👉 If String comes first, everything becomes String.
+
+👉 If numbers come first, they add normally until a String appears.
