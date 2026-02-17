@@ -1,0 +1,40 @@
+class Test {
+    int test_a, test_b;
+
+    Test(int a, int b) {
+        test_a = a;
+        test_b = b;
+    }
+
+    public static void main (String args[]) {
+        Test test = new Test();
+        System.out.println(test.test_a+" "+test.test_b);
+    }
+}
+--------------------------
+❌ What Happens Here?
+
+You created only one constructor:
+
+Test(int a, int b)
+
+
+But in main() you wrote:
+
+Test test = new Test();
+
+
+This is calling a no-argument constructor.
+
+But ❗ you did NOT create a no-argument constructor.
+
+🔥 Important Rule
+
+If you create any constructor manually,
+Java does NOT provide default constructor automatically.
+
+So compiler gives error:
+
+constructor Test in class Test cannot be applied to given types;
+required: int,int
+found: no arguments
