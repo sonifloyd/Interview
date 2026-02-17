@@ -1,0 +1,92 @@
+“Static variable belongs to class and is shared among all objects.”
+
+Why main() Method is Static?
+public static void main(String[] args)
+
+👉 Reason:
+
+JVM calls main() method without creating object.
+
+Since no object is created at the start of program,
+main() must be static so JVM can call it directly using class name.
+
+🔥 How JVM Calls main()
+
+Internally JVM does something like:
+
+Main.main(args);
+
+
+Not like:
+
+new Main().main(args); ❌
+
+
+Because no object exists yet.
+
+🔹 What If main() is Not Static?
+
+Example:
+
+public class Main {
+    public void main(String[] args) {
+        System.out.println("Hello");
+    }
+}
+
+
+Now try to run program ❌
+
+Compile Time Error:
+Error: Main method is not static in class Main
+
+
+Program will NOT run.
+
+🔥 Why JVM Needs static?
+
+Because:
+
+Program execution starts from main()
+
+No object exists before program starts
+
+So JVM cannot create object automatically
+
+Therefore main() must belong to class → static
+
+🔹 Simple Real-Life Example
+
+Think:
+
+Class = Blueprint of house
+Object = Real house
+
+Before building house (object),
+You need entry point (main).
+
+So entry point must exist without object.
+
+🎯 One-Line Interview Answer
+
+“Main method is static because JVM calls it without creating object of the class.”
+
+🔥 Extra Knowledge
+
+main() must be:
+
+public → JVM must access it
+
+static → No object required
+
+void → Does not return anything
+
+String[] args → For command-line arguments
+
+If you want, I can also explain:
+
+Can we overload main method?
+
+Can main be private?
+
+Can we run program without main? 😄
