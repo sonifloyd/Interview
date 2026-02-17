@@ -1,0 +1,23 @@
+Encapsulation means binding data (variables) 
+and methods together in a single unit and restricting direct access to data using access modifiers.
+
+Data ko hide karna + control access dena = Encapsulation
+
+How to Achieve Encapsulation in Java?
+1️⃣ Make variables private
+2️⃣ Provide public getter & setter methods
+
+
+
+Encapsulation vs Abstraction (Very Important)
+Encapsulation	Abstraction
+Hides data	Hides implementation
+Achieved using private variables	Achieved using abstract class/interface
+Focus on security	Focus on design
+
+You cannot directly change your bank balance.
+You must use:
+deposit()
+withdraw()
+Balance is hidden.
+That is Encapsulation.
