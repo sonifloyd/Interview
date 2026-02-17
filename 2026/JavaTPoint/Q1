@@ -1,0 +1,92 @@
+class Test   
+{  
+    public static void main (String args[])   
+    {  
+        System.out.println(10 * 20 + "Tpointtech");   
+        System.out.println("Tpointtech" + 10 * 20);  
+    }  
+}  
+
+First Line
+System.out.println(10 * 20 + "Tpointtech");
+
+Step 1: Operator precedence
+
+* has higher precedence than +.
+
+So first:
+
+10 * 20 = 200
+
+
+Now expression becomes:
+
+200 + "Tpointtech"
+
+
+Since one operand is String → concatenation happens.
+
+✅ Output:
+200Tpointtech
+
+🔹 Second Line
+System.out.println("Tpointtech" + 10 * 20);
+
+
+Now here many students get confused 🔥
+
+Again, * has higher precedence than +.
+
+So Java first calculates:
+
+10 * 20 = 200
+
+
+Then expression becomes:
+
+"Tpointtech" + 200
+
+
+Now String concatenation happens.
+
+✅ Output:
+Tpointtech200
+
+🎯 Final Output
+200Tpointtech
+Tpointtech200
+
+🔥 Important Rule for Interview
+
+Operator precedence order:
+
+1. *, /, %
+2. +, -
+3. String concatenation (if String present)
+
+
+So multiplication always happens before concatenation.
+
+⚠️ Very Important Trick
+
+If you write:
+
+System.out.println("Tpointtech" + 10 + 20);
+
+
+Output:
+
+Tpointtech1020
+
+
+But if you write:
+
+System.out.println("Tpointtech" + (10 + 20));
+
+
+Output:
+
+Tpointtech30
+
+
+👉 Brackets change everything.
