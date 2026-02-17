@@ -1,0 +1,9 @@
+Difference Between Abstract Class and Interface in Java
+Feature	Abstract Class	Interface
+Keyword	abstract class	interface
+Methods	Can have abstract + normal methods	Mostly abstract methods (default & static allowed after Java 8)
+Variables	Can have instance variables	Only public static final (constants)
+Constructor	✅ Yes	❌ No
+Multiple Inheritance	❌ Not supported	✅ Supported
+Access Modifiers	Any (private, protected, etc.)	Methods are public by default
+When to Use	When classes share common base behavior	When you define a contract
