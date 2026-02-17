@@ -1,0 +1,38 @@
+Difference Between final Method and abstract Method in Java
+Feature	final Method	abstract Method
+Body (Implementation)	Has complete implementation	Has no body (only declaration)
+Overriding	❌ Cannot be overridden	✅ Must be overridden in subclass
+Purpose	Prevent modification of behavior	Force subclass to provide implementation
+Used In	Normal class	Abstract class (or interface)
+Keyword Meaning	“Don’t change this method”	“You must implement this method”
+--
+class Parent {
+    final void show() {
+        System.out.println("This is final method");
+    }
+}
+
+class Child extends Parent {
+    // void show() { } ❌ ERROR - Cannot override final method
+}
+show() method already implemented.
+Child class cannot override it.
+Used when you want fixed behavior.
+-----
+
+abstract class Parent {
+    abstract void show();   // no body
+}
+
+class Child extends Parent {
+    void show() {          // must implement
+        System.out.println("Implemented in child");
+    }
+}
+--
+Method has no body.
+Child class must override it.
+Used when behavior depends on subclass.
+
+You cannot write:
+abstract final void show(); // ❌ Invalid
