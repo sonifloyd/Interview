@@ -1,0 +1,35 @@
+What is the output of the following Java program?
+class Test   
+{  
+    public static void main (String args[])   
+    {  
+        for(int i=0; 0; i++)   
+        {  
+            System.out.println("Hello Tpointtech");  
+        }  
+    }  
+}  
+The above code will result in a compilation error due to the 
+non-boolean expression in the second part of the for loop, and given is an integer value, i.e., 0.
+---
+Structure of for loop:
+for(initialization; condition; increment)
+So here:
+Initialization → int i = 0 ✅
+Condition → 0 ❌
+Increment → i++ ✅
+-------
+Correct Version (If You Want Infinite Loop)
+for(int i = 0; true; i++) {
+    System.out.println("Hello Tpointtech");
+}
+
+
+OR
+
+for(;;) {
+    System.out.println("Hello Tpointtech");
+}
+
+
+Both create infinite loops.
