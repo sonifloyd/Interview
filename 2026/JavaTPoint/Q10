@@ -1,0 +1,96 @@
+class Animal {    
+    Animal() { 
+        System.out.println("An animal is created"); 
+    }    
+}    
+
+class Dog extends Animal {    
+    Dog(){    
+        System.out.println("A dog is created");     
+    }    
+}    
+
+class Main {    
+    public static void main(String args[]) {    
+        Dog d = new Dog();    
+    }    
+}
+---------------
+Execution Flow (Step by Step)
+Step 1️⃣
+
+Program starts from:
+
+main()
+
+Step 2️⃣
+
+This line runs:
+
+Dog d = new Dog();
+
+
+Now object creation starts.
+
+Step 3️⃣
+
+Before Dog() constructor runs,
+Java automatically calls parent constructor first.
+
+Internally Java adds:
+
+super();
+
+
+So actual Dog constructor becomes:
+
+Dog() {
+    super();   // automatically added
+    System.out.println("A dog is created");
+}
+
+Step 4️⃣
+
+Now execution order:
+
+Animal() constructor runs
+→ prints:
+
+An animal is created
+
+
+Then Dog() constructor runs
+→ prints:
+
+A dog is created
+
+✅ Final Output
+An animal is created
+A dog is created
+
+🔥 Important Rule (Very Interview Important)
+
+👉 Parent class constructor runs first.
+👉 Then child class constructor runs.
+👉 super() is automatically inserted by compiler.
+
+🎯 Why?
+
+Because:
+
+Child class inherits parent properties.
+
+So parent must be initialized first.
+
+🔥 Visual Flow
+main()
+   ↓
+new Dog()
+   ↓
+Animal() constructor
+   ↓
+Dog() constructor
+
+🎯 Interview One-Line Answer
+
+“When a child class object is created, the parent class constructor is executed first due to implicit super() call.”
