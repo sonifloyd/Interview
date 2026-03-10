@@ -1,0 +1,7 @@
+6) What are the different components of Selenium?
+Selenium is not just a single tool but a suite of software's, each having a different approach to support automation testing. It comprises of four major components which include:
+
+Selenium Integrated Development Environment (IDE)
+Selenium Remote Control (Now Deprecated)
+WebDriver
+Selenium Grid
