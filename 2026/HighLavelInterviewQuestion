@@ -93,3 +93,25 @@ New changes ke baad old functionality break na ho
 All floors and buttons re-test
 
 Q---
+public class Main {
+    public static void main(String[] args) {
+
+        String str = "sssttrrrs";
+        String result = "";
+
+        int count = 1;
+
+        for (int i = 0; i < str.length(); i++) {
+
+            // Check next character same hai ya nahi
+            if (i < str.length() - 1 && str.charAt(i) == str.charAt(i + 1)) {
+                count++;
+            } else {
+                result = result + str.charAt(i) + count;
+                count = 1; // reset
+            }
+        }
+
+        System.out.println(result);
+    }
+}
