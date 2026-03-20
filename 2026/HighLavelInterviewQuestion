@@ -1,0 +1,95 @@
+Q.convert given state and ther city convert into dsa 
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        map.put("UP", Arrays.asList("Mathura", "Agra"));
+        map.put("WB", Arrays.asList("Kolkata", "Howrah"));
+
+        System.out.println(map);
+    }
+}
+
+Q2 . Write testcases for lift 
+
+Functional Testing
+Basic functionality verify karte hain:
+
+User floor button press kare → lift correct floor pe jaye
+
+Up/Down button kaam kare
+
+Door open/close properly ho
+
+Floor display sahi show kare
+
+Lift current direction follow kare (up/down logic)
+
+Example Test Case:
+
+Input: Floor 3 press
+
+Expected: Lift floor 3 pe ruk jaye
+
+Negative Testing
+
+Invalid button press (multiple random press)
+
+Same floor button baar-baar press
+
+Overload hone par lift move na kare
+
+Door forcefully close karne pe error handle ho
+Edge Case Testing
+
+Lift top floor pe hai → up button press
+
+Lift ground floor pe hai → down button press
+
+Simultaneous requests (multiple floors)
+
+Power fluctuation
+Performance Testing
+
+Peak hours me response time
+
+Multiple requests handle karna
+
+Waiting time optimize ho
+
+6. Security Testing
+
+Unauthorized access (maintenance mode)
+
+Restricted floors access control
+
+Emergency override misuse na ho
+
+Usability Testing
+Buttons clearly visible ho
+
+Braille support ho
+
+Voice announcement clear ho
+
+Elderly-friendly design
+8. Safety Testing (VERY IMPORTANT)
+
+Door obstruction pe lift close na ho
+
+Emergency alarm kaam kare
+
+Power failure pe backup system
+
+Free fall prevention system
+
+🔁 9. Regression Testing
+
+New changes ke baad old functionality break na ho
+
+All floors and buttons re-test
+
+Q---
