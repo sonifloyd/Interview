@@ -1,0 +1,129 @@
+scenarios outline example 
+Feature: Login API
+
+  Background:
+    * url 'https://reqres.in/api'
+
+  Scenario Outline: Login with multiple users
+
+    Given path '/login'
+    And request 
+    """
+    {
+      "email": "<email>",
+      "password": "<password>"
+    }
+    """
+
+    When method POST
+    Then status <status>
+
+  Examples:
+    | email              | password | status |
+    | test@gmail.com     | 12345    | 200    |
+    | wrong@gmail.com    |          | 400    |
+
+    --- 
+    put and patch differnce 
+    Key Differences
+Feature	PUT	PATCH
+Update type	Full replace	Partial update
+Data required	Complete object	Only changed fields
+Risk	Data loss possible	Safe
+Idempotent	Yes	Usually yes
+Use case	Replace whole data	Update few fields
+
+----"If we need a single API call that should pass whether the data exists or not, we use PUT. 
+PUT supports idempotent behavior and can act as an upsert operation, meaning it updates if the resource exists and creates it if it does not."
+---
+Test Cases:
+Valid request bhejo → correct response aaye (200 / 201)
+Response body validate karo
+Data DB me create/update ho raha hai?
+Response time acceptable hai?
+Headers correct hain?
+Example:
+POST /users
+{
+  "name": "Soni",
+  "job": "QA"
+}
+
+✔ Expected:
+
+Status = 201
+name = Soni
+job = QA
+Input Validation
+Missing required field
+Empty value
+Invalid data type
+{
+  "name": ""
+}
+
+✔ Expected: 400 Bad Request
+❌ Authentication / Authorization
+No token
+Invalid token
+
+✔ Expected: 401 / 403
+
+❌ Boundary Testing
+Very long string
+Special characters
+❌ Duplicate Data
+Same user multiple times
+❌ Invalid Endpoint
+POST /wrong-url
+
+✔ Expected: 404
+❌ Method Not Allowed
+GET instead of POST
+
+✔ Expected: 405
+
+--
+program 
+String = " Vaibhav Aggar"
+output = "Vaibhv  gr"
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        String str = " Vaibhav Aggar";
+        String result = "";
+        
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            
+            // if char not already in result, add it
+            if (result.indexOf(ch) == -1) {
+                result += ch;
+            }
+        }
+        
+        System.out.println(result.trim());
+    }
+}
+---
+import java.util.*;
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        String str = " Vaibhav Aggar";
+        StringBuilder result = new StringBuilder();
+        Set<Character> set = new HashSet<>();
+
+        for (char ch : str.toCharArray()) {
+            if (!set.contains(ch)) {
+                set.add(ch);
+                result.append(ch);
+            }
+        }
+
+        System.out.println(result.toString().trim());
+    }
+}
+
+----------
+explain ur project arachtich 
