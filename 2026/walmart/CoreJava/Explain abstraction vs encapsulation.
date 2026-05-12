@@ -1,0 +1,54 @@
+Explain abstraction 
+Abstraction is the process of hiding implementation details and showing only essential features.
+abstraction can be achieved mainly in 2 ways:
+1. Abstract Class
+An abstract class can have:
+abstract methods (without body)
+normal methods (with body)
+--
+abstract class Animal {
+
+    abstract void sound(); // abstract method
+
+    void sleep() {
+        System.out.println("Animal is sleeping");
+    }
+}
+----
+class Dog extends Animal {
+
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+Dog d = new Dog();
+
+d.sound();
+d.sleep();
+
+2. Interface
+Interface provides 100% abstraction (traditionally).
+It contains method declarations.
+interface Payment {
+
+    void pay();
+}
+class UpiPayment implements Payment {
+
+    public void pay() {
+        System.out.println("Payment via UPI");
+    }
+}
+Payment p = new UpiPayment();
+p.pay();
+Ecommerce Payment System
+User only does:
+pay()
+Internal logic:
+card validation
+bank API
+OTP verification
+transaction handling
+is hidden.
+That is abstraction.
+Abstraction in Java can be achieved using abstract classes and interfaces.
