@@ -1,1 +1,5 @@
 Encapsulation is the process of binding data and methods together and restricting direct access to data using private variables.
+We can achieve encapsulation in Java by:
+
+Making variables private
+Providing public getter and setter methods to access/update data
