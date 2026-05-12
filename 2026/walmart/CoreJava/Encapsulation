@@ -3,3 +3,4 @@ We can achieve encapsulation in Java by:
 
 Making variables private
 Providing public getter and setter methods to access/update data
+Encapsulation is achieved by declaring variables as private and accessing them using public getter and setter methods
