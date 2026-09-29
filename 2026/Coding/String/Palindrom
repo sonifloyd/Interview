@@ -1,0 +1,23 @@
+public static String checkPalindrome(String s) {
+    if (s == null) return "not a palindrome";
+    String rev = "";
+    for (int i = 0; i < s.length(); i++) {
+        rev = s.charAt(i) + rev;
+    }
+    if (rev.equals(s)) {
+        return "palindrome";
+    }
+    return "not a palindrome";
+}
+
+
+Version 2: Interview ke liye better (boolean return)
+java
+public static boolean isPalindrome(String s) {
+    if (s == null) return false;
+    String rev = "";
+    for (int i = 0; i < s.length(); i++) {
+        rev = s.charAt(i) + rev;
+    }
+    return rev.equals(s);      // if-else ki zaroorat nahi
+}
