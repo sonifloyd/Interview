@@ -1,0 +1,31 @@
+public class Main {
+    public static void main(String[] args) {
+        String str = "hello";
+        char target = 'e';
+
+        boolean found = false;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == target) {
+                found = true;
+                break;
+            }
+        }
+
+        if (found) {
+            System.out.println("Character found");
+        } else {
+            System.out.println("Character not found");
+        }
+    }
+}
+
+Understand: charAt(i) gives you the character at index i.
+
+For "hello":
+Index	Character
+0	h
+1	e
+2	l
+3	l
+4	o
